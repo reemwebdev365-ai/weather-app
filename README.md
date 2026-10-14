@@ -6,18 +6,23 @@ Built with **Node.js**, **Express**, and **Handlebars**. It uses the **Mapbox Ge
 
 ## Screenshots
 
-### Home
-The landing page, with a search box where the user types a country or city name and a **Get Weather** button.
+### 1. Home
+The landing page. The user types a country or city name in the search box and clicks **Get Weather**.
 
 ![Home page](./screenshots/1.png)
 
-### Weather Result
-After searching (for example, "Egypt"), the app shows the country name, latitude, longitude, and the current temperature in °C. While the data is loading, the button shows "Loading..." and is disabled to prevent duplicate requests.
+### 2. Loading State
+After clicking the button, it changes to "Loading..." and is disabled while the data is being fetched. This gives the user feedback and prevents sending duplicate requests.
+
+![Loading state](./screenshots/loading.png)
+
+### 3. Weather Result
+Once the data arrives, the app shows the country name, latitude, longitude, and the current temperature in °C inside separate info cards.
 
 ![Weather result](./screenshots/2.png)
 
-### Error Handling
-If the location can't be found or the request fails, a clear error message is shown under the form instead of breaking the page. In this example, a meaningless search returns "Unable to find location. Try another search".
+### 4. Error Handling
+If the location can't be found or the request fails, a clear message is shown under the form instead of breaking the page. Here, a meaningless search returns "Unable to find location. Try another search".
 
 ![Error message](./screenshots/3.png)
 
@@ -26,7 +31,7 @@ If the location can't be found or the request fails, a clear error message is sh
 - Search by country or city name
 - Displays country, latitude, longitude, and current temperature (°C)
 - Friendly error messages for invalid locations or API failures
-- Loading state on the button while fetching data
+- Loading indicator and disabled button while the request is in progress
 - Clean glassmorphism UI with a responsive layout
 - API keys stored securely in environment variables
 
@@ -103,7 +108,7 @@ GET /weather?address=<country or city name>
   "country": "Egypt",
   "latitude": 26.4942,
   "longitude": 29.8719,
-  "temperature": 27.4
+  "temperature": 30.3
 }
 ```
 
