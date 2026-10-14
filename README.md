@@ -2,17 +2,23 @@
 
 A simple and responsive web app that takes a country or city name and shows its coordinates and current temperature.
 
-Built with **Node.js**, **Express**, and **Handlebars**, using the **Mapbox Geocoding API** to find the location and the **WeatherAPI** to get the current weather.
+Built with **Node.js**, **Express**, and **Handlebars**. It uses the **Mapbox Geocoding API** to find the location and **WeatherAPI** to get the current weather.
 
 ## Screenshots
 
 ### Home
+The landing page, with a search box where the user types a country or city name and a **Get Weather** button.
+
 ![Home page](./screenshots/1.png)
 
 ### Weather Result
+After searching (for example, "Egypt"), the app shows the country name, latitude, longitude, and the current temperature in °C. While the data is loading, the button shows "Loading..." and is disabled to prevent duplicate requests.
+
 ![Weather result](./screenshots/2.png)
 
 ### Error Handling
+If the location can't be found or the request fails, a clear error message is shown under the form instead of breaking the page. In this example, a meaningless search returns "Unable to find location. Try another search".
+
 ![Error message](./screenshots/3.png)
 
 ## Features
@@ -44,8 +50,8 @@ Built with **Node.js**, **Express**, and **Handlebars**, using the **Mapbox Geoc
 1. Clone the repository:
 
 ```bash
-   git clone https://github.com/reemwebdev365-ai/YOUR-REPO-NAME.git
-   cd YOUR-REPO-NAME
+   git clone https://github.com/reemwebdev365-ai/weather-app.git
+   cd weather-app
 ```
 
 2. Install dependencies:
@@ -68,14 +74,21 @@ Built with **Node.js**, **Express**, and **Handlebars**, using the **Mapbox Geoc
    npm start
 ```
 
+   For development with auto-reload:
+
+```bash
+   npm run dev
+```
+
 5. Open your browser at [http://localhost:3000](http://localhost:3000)
 
 ## How It Works
 
 1. The user enters a country or city name.
-2. The server sends the name to the **Mapbox Geocoding API** to get its latitude and longitude.
-3. The coordinates are sent to the **WeatherAPI** to get the current temperature.
-4. The result is returned to the browser and displayed on the page.
+2. The browser sends a request to the server: `GET /weather?address=<name>`.
+3. The server sends the name to the **Mapbox Geocoding API** to get its latitude and longitude.
+4. The coordinates are sent to **WeatherAPI** to get the current temperature.
+5. The server returns the result as JSON, and the page displays it (or shows an error message if something fails).
 
 ## API Endpoint
 
@@ -94,13 +107,21 @@ GET /weather?address=<country or city name>
 }
 ```
 
+**Error response:**
+
+```json
+{
+  "error": "Unable to find location. Try another search"
+}
+```
+
 ## Project Structure
 
 ```
 ├── public/
 │   ├── css/
 │   │   └── style.css
-│   ├── images/         # Background images
+│   ├── images/         # Background image
 │   └── js/
 │       └── script.js   # Client-side script
 ├── screenshots/        # README screenshots
