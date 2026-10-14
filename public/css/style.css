@@ -14,7 +14,6 @@ body {
     font-family: Arial, sans-serif;
     color: white;
 
-    /* طبقة شفافة لتهدئة الخلفية */
     background-image:
         linear-gradient(
             rgba(10, 25, 55, 0.18),
@@ -28,10 +27,8 @@ body {
     background-attachment: fixed;
 }
 
-/* الكارت الرئيسي */
 .weather-card {
-    /* height: 400px; */
-    width: 500px;
+    width: 420px;
     max-width: 100%;
     padding: 30px 24px;
     border-radius: 18px;
@@ -47,7 +44,6 @@ body {
     transition: background 0.3s ease;
 }
 
-/* العنوان والأيقونة */
 
 h1 {
     display: flex;
