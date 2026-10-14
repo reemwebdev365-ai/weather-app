@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <main class="weather-card">
+        <h1>
+            <span class="weather-icon">☀️</span>
+            Weather App
+        </h1>
+
+        <form id="form1">
+            <input
+                type="text"
+                id="address"
+                name="address"
+                placeholder="Enter country name"
+                autocomplete="off"
+                required
+            >
+            <button type="submit" id="submit-btn">Get Weather</button>
+        </form>
+
+        <p id="error"></p>
+
+        <section id="weather-result" hidden>
+            <div class="info-box">
+                <span class="info-icon">📍</span>
+                <span id="country">Country:</span>
+            </div>
+
+            <div class="info-box">
+                <span class="info-icon">🌐</span>
+                <span id="latitude">Latitude:</span>
+            </div>
+
+            <div class="info-box">
+                <span class="info-icon">🌐</span>
+                <span id="longitude">Longitude:</span>
+            </div>
+
+            <div class="info-box">
+                <span class="info-icon">🌤️</span>
+                <span id="temperature">Temperature:</span>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
